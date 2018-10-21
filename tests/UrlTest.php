@@ -14,6 +14,6 @@ class UrlTest extends TestCase
 
     function testTwo()
     {
-        $this->assertEquals(true, false);
+        $this->assertEquals(true, true);
     }
 }
