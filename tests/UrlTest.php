@@ -1,7 +1,8 @@
 <?php
 
+namespace Wimby\Url;
+
 use PHPUnit\Framework\TestCase;
-use Wimby\Url\Url;
 
 
 class UrlTest extends TestCase

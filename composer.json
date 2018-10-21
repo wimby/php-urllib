@@ -5,15 +5,34 @@
     "license": "MIT",
     "require": {},
     "require-dev": {
+        "phpstan/phpstan": "^0.10.5",
         "phpunit/phpunit": "^7.4"
+    },
+    "config": {
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
             "Wimby\\Url\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Wimby\\Url\\": "tests/"
+        }
+    },
     "scripts": {
+        "ci": [
+            "@phpstan-ci",
+            "@test-ci"
+        ],
+        "phpstan": "vendor/bin/phpstan analyse --level=7 src tests",
+        "phpstan-ci": "vendor/bin/phpstan analyse --level=7 --no-interaction --no-progress src tests",
         "test": "vendor/bin/phpunit --coverage-html build/coverage",
         "test-ci": "vendor/bin/phpunit --coverage-clover build/logs/clover.xml"
+    },
+    "scripts-descriptions": {
+        "phpstan": "Checks that the code conforms to coding standard",
+        "test": "Launches the preconfigured PHPUnit"
     }
 }
